@@ -16,10 +16,10 @@ public interface UserJpaRepository extends JpaRepository<UserEntity, Long> {
     /**
      * Finds a user by email.
      */
-    Optional<UserEntity> findByEmail(String email);
+    Optional<UserEntity> findByEmailIgnoreCase(String email);
 
     /**
      * Checks if a user exists by email.
      */
-    boolean existsByEmail(String email);
+    boolean existsByEmailIgnoreCase(String email);
 }

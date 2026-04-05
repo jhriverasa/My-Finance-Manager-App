@@ -34,13 +34,13 @@ public class AuthenticateUserServiceImpl implements AuthenticateUserUseCase {
         Optional<User> userOptional = userRepository.findByEmail(email);
         
         if (userOptional.isEmpty()) {
-            return new AuthenticationResult(null, null, null, false, "User not found");
+            return new AuthenticationResult(null, null, null, false, "Invalid credentials");
         }
 
         User user = userOptional.get();
         
         if (!passwordEncoder.matches(password, user.getPasswordHash())) {
-            return new AuthenticationResult(null, null, null, false, "Invalid password");
+            return new AuthenticationResult(null, null, null, false, "Invalid credentials");
         }
 
         String accessToken = jwtTokenProvider.generateAccessToken(user);
