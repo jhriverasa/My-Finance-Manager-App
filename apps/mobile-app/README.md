@@ -1,167 +1,50 @@
-# MyFinanceManager Mobile
+# Welcome to your Expo app 👋
 
-React Native mobile application built with Expo, following Mobile-First design principles.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Tech Stack
+## Get started
 
-- **React Native** - Cross-platform mobile development
-- **Expo** - Development platform and tools
-- **Expo Router** - File-based routing
-- **TypeScript** - Type safety
-- **NativeWind** - Tailwind CSS for React Native
-- **Gluestack UI** - Component library
-- **Zustand** - State management
+1. Install dependencies
 
-## Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-├── screens/            # Screen components (pages)
-├── hooks/              # Custom React hooks
-├── store/              # Zustand stores
-├── services/           # API services
-├── utils/              # Utility functions
-├── types/              # TypeScript type definitions
-└── constants/          # App constants
-
-app/                    # Expo Router pages
-├── (tabs)/            # Tab navigation screens
-├── (auth)/            # Authentication screens
-└── _layout.tsx        # Root layout
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-- Expo CLI
-- iOS Simulator or Android Emulator (optional)
-
-### Installation
-
-1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Copy environment file:
+2. Start the app
+
    ```bash
-   cp .env.example .env
+   npx expo start
    ```
 
-3. Start the development server:
-   ```bash
-   npm start
-   ```
+In the output, you'll find options to open the app in a
 
-4. Run on platform:
-   - Press `i` for iOS simulator
-   - Press `a` for Android emulator
-   - Press `w` for web browser
-   - Scan QR code with Expo Go app on physical device
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## Available Scripts
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-| Script | Description |
-|--------|-------------|
-| `npm start` | Start Expo development server |
-| `npm run ios` | Run on iOS simulator |
-| `npm run android` | Run on Android emulator |
-| `npm run web` | Run in web browser |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format code with Prettier |
-| `npm test` | Run Jest tests |
-| `npm run test:coverage` | Generate coverage report |
+## Get a fresh project
 
-## Quality Tools
+When you're ready, run:
 
-### Linting
 ```bash
-npm run lint
+npm run reset-project
 ```
 
-### Formatting
-```bash
-npm run format
-```
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-### Testing
-```bash
-npm test
-npm run test:watch
-npm run test:coverage
-```
+## Learn more
 
-## Environment Variables
+To learn more about developing your project with Expo, look at the following resources:
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `API_BASE_URL` | Backend API URL | `http://localhost:8080/api/v1` |
-| `APP_NAME` | Application name | `MyFinanceManager` |
-| `APP_VERSION` | Application version | `0.1.0` |
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Styling
+## Join the community
 
-The app uses **NativeWind** (Tailwind CSS for React Native) for styling:
+Join our community of developers creating universal apps.
 
-```tsx
-import { View, Text } from 'react-native';
-
-export function MyComponent() {
-  return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-lg font-bold text-gray-900">
-        Hello World
-      </Text>
-    </View>
-  );
-}
-```
-
-## State Management
-
-State is managed with **Zustand**:
-
-```tsx
-import { create } from 'zustand';
-
-interface AuthStore {
-  user: User | null;
-  token: string | null;
-  login: (user: User, token: string) => void;
-  logout: () => void;
-}
-
-export const useAuthStore = create<AuthStore>((set) => ({
-  user: null,
-  token: null,
-  login: (user, token) => set({ user, token }),
-  logout: () => set({ user: null, token: null }),
-}));
-```
-
-## API Integration
-
-API calls are made through services in `src/services/`:
-
-```tsx
-import { api } from './api';
-
-export const authAPI = {
-  login: async (email: string, password: string) => {
-    const response = await api.post('/auth/login', { email, password });
-    return response.data;
-  },
-  register: async (data: RegisterData) => {
-    const response = await api.post('/auth/register', data);
-    return response.data;
-  },
-};
-```
-
-## License
-
-Private - All rights reserved
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
